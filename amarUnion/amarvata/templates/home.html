@@ -1,0 +1,74 @@
+{% load tailwind_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amar Vata</title>
+    {% tailwind_css %}
+</head>
+<style>
+
+    .bgg {
+        background-image: url('{% static "img/bd.png" %}');
+    }
+</style>
+<body>
+    <div class="h-screen w-screen overflow-hidden flex flex-col">
+        <div class="w-full flex flex-row justify-between h-20 px-12 mt-2">
+            <img src="{% static 'img/logo.png' %}" alt="" class="w-35 h-full">
+            <div class="w-1/2 h-full flex flex-row justify-end items-center">
+                <a href="" class="px-5">Hello</a>
+                <a href="" class="px-5">Hello</a>
+                <a href="" class="px-5">Hello</a>
+                <a href="" class="px-5">Hello</a>
+                <a href="" class="px-5">Hello</a>
+            </div>
+        </div>
+        <div class="w-full h-3/4 mt-2 flex flex-row px-12 justify-end">
+            <div class="w-2/3 h-full flex flex-col items-center justify-center">
+                <div class="bgg bg-no-repeat flex flex-row justify-center px-20" style=" background-size:cover; width:100vh; height:100vh;">
+                    <div class="w-full h-full flex flex-col justify-center bg-black">
+                        <h1 class="font-bold" style="font-size: 10vh; ">আমার</h1>
+                        <h1 class="font-bold -mt-10" style="font-size: 10vh; ">ভাতা</h1>
+    
+                        <p class="mt-5 text-xl">
+                            
+                            "আমার ভাতা" একটি ডিজিটাল প্লাটফর্ম, যা ভাতা সংগ্রহ এবং বিতরণ প্রক্রিয়ার জন্য একটি পূর্ণসংগ্রহশীল এবং সুবিধাজনক সমাধান প্রদান করে। এই প্লাটফর্মের মাধ্যমে একজন আবেদনকারী তাদের ভাতা সংগ্রহ থেকে শুরু করে ভাতা সংক্রান্ত সকল তথ্য হাতের নাগালে পেতে সক্ষম।
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="w-1/3 h-full flex flex-col items-center justify-center">
+                <div class="w-fit border border-orange-500 p-24 rounded-2xl">
+                    <h1 class="text-5xl font-bold">লগ-ইন</h1>
+                    <h1 class="text-xs font-thin">আপনার এন আইডি নাম্বার এবং পাসওয়ার্ড দিয়ে লগ-ইন করুন</h1>
+                    <form action="" class="space-y-8 w-full">
+                        {% csrf_token %}
+                        <input
+                            type="text"
+                            class="bg-transparent mt-5 outline-none placeholder:text-gray-300 focus:border-orange-500 border-b w-full"
+                            placeholder="মোবাইল নাম্বার"
+                        />
+                
+                        <input
+                            type="password"
+                            class="bg-transparent outline-none placeholder:text-gray-300 focus:border-orange-500 border-b w-full"
+                            placeholder="পাসওয়ার্ড"
+                        />
+                        <a href=""><h1 class="mt-4">পাসওয়ার্ড ভুলে গেছেন?</h1></a>
+                
+                        <button
+                            class="border border-orange-500 w-full rounded-xl hover:bg-orange-500 transition-all hover:text-lg ease-in focus:bg-orange-500 p-5"
+                            >লগইন</button
+                        >
+                
+                        <a href="{% url 'signup' %}">নতুন একাউন্ট নিবন্ধন</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

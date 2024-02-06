@@ -1,0 +1,93 @@
+{% load static %}
+{% load tailwind_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% tailwind_css %}
+</head>
+<body>
+    <div class="absolute h-screen w-screen overflow-hidden">
+        
+
+        <div class=" h-1/3 w-1/2 text-white p-5 rounded-xl mt-60 backdrop-blur-sm shadow-2xl">
+            <div class="z-50 w-full h-fit text-right flex justify-between items-center">
+                <div class="w-full">
+                    <a href="/"><img src="{% static 'img/logo.png' %}" alt="" class=" w-1/3 mr-20" /></a>
+                </div>
+                <div class="w-full">
+                    <h1 class="text-5xl font-bold">সাইন-আপ</h1>
+                </div>
+            </div>
+    
+            <div class="">
+                <form action="{% url 'storeit' %}" method="POST" class="space-y-8 w-full">
+                    {% csrf_token %}
+                    <input
+                        type="text"
+                        class="bg-transparent outline-none border-0 placeholder:text-white focus:border-orange-500 w-full"
+                        placeholder="নাম" name="name"
+                    />
+    
+                    <div class="flex w-full space-x-2">
+                        <input
+                            type="text"
+                            class="bg-transparent outline-none placeholder:text-white focus:border-orange-500 border-b w-1/2"
+                            placeholder="স্থায়ী ঠিকানা" name="per_add"
+                        />
+    
+                        <input
+                            type="text"
+                            class="bg-transparent outline-none placeholder:text-white focus:border-orange-500 border-b w-1/2"
+                            placeholder="বর্তমান ঠিকানা" name="pres_add"
+                        />
+                    </div>
+    
+                    <div class="flex w-full space-x-2">
+                        <input
+                            type="text"
+                            class="bg-transparent outline-none placeholder:text-white focus:border-orange-500 border-b w-1/2"
+                            placeholder="মোবাইল নাম্বার*" name="number"
+                        />
+    
+                        <input
+                            type="text"
+                            class="bg-transparent outline-none placeholder:text-white focus:border-orange-500 border-b w-1/2"
+                            placeholder="NID নাম্বার *" name="nid_number"
+                        />
+                    </div>
+    
+                    <input
+                        type="password"
+                        class="bg-transparent outline-none placeholder:text-white focus:border-orange-500 border-b w-full"
+                        placeholder="নতুন পাসওয়ার্ড" name="pass"
+                    />
+    
+                    <input
+                        type="password"
+                        class="bg-transparent outline-none placeholder:text-white focus:border-orange-500 border-b w-full"
+                        placeholder="নতুন পাসওয়ার্ড কনফার্ম" name="conf_pass"
+                    />
+    
+                    <input type="submit"
+                        class="border border-orange-500 w-full rounded-xl hover:bg-orange-500 transition-all hover:text-xl ease-in focus:bg-orange-500 p-5"
+                        value="নিবন্ধন" />
+    
+                    <a href="{% url 'login' %}">লগ-ইন করুন</a>
+                </form>
+            </div>
+        </div>
+    
+        <!-- <div class="h-1/4 w-screen absolute inset-0 -z-50">
+            <video src="{% static 'img/backvid.mp4' %}" muted autoplay loop class="h-full w-full object-cover" >
+            <div class="absolute inset-0 bg-black opacity-50 h-full w-full" >
+        </div> -->
+        
+    
+        
+    </div>
+</body>
+</html>
